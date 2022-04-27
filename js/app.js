@@ -18,7 +18,20 @@ window.onscroll = function() {
         zVals[i] += delta * -5
         let frame = frames[i],
             transform = `translateZ(${zVals[i]}px)`
-        frame.setAttribute('style', `transform: ${transform}`)
+            opacity = zVals[i] < Math.abs(zSpacing) / 1.5 ? 1 : 0
+        frame.setAttribute('style', `transform: ${transform}; opacity: ${opacity}`)
     })
 
 }
+
+window.scrollTo(0, 1)
+
+// Audio
+
+let soundButton = document.querySelector('.soundbutton'),
+		audio = document.querySelector('.audio')
+
+soundButton.addEventListener('click', e => {
+	soundButton.classList.toggle('paused')
+	audio.paused ? audio.play() : audio.pause()
+})
