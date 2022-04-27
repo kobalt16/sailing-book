@@ -8,16 +8,19 @@
     --index: calc(1vw + 1vh);
     --gutter: 30px;
     --side-small: 26;
-    --size-big: 36;
+    --side-big: 36;
     --depth: 4000px;
+    --transition: .75s cubic-bezier(.075, .5, 0, 1);
 }
 
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: rgb(4, 8, 23);
+    color: rgb(244, 248, 255);
     font-size: calc(var(--index) * .8);
+    font-family: 'Roboto Mono';
     line-height: 1.75;
     height: var(--depth);
+    font-weight: 300;
 }
 
 .container {
@@ -37,4 +40,44 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    will-change: transform opacity .75s ease;
+    transition: var(--transition) ;
+    transform-style: preserve-3d;
+}
+h1, h2, h3, h4 {
+    font-weight: 100;
+    text-transform: uppercase;
+}
+.frame h2 {
+    text-align: center;
+    font-size: calc(var(--index) * 3.3);
+}
+.frame-media {
+    position: relative;
+    width: calc(var(--index) * var(--side-small));
+    height: calc(var(--index) * var(--side-big));
+    background-position: center;
+    background-size: cover;
+}
+.frame-media_left {
+    right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+.frame-media_right {
+    left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+.frame-bg {
+    background-color: rgba(4, 8, 23, 0.88);
+}
+
+.soundbutton {
+    position: fixed;
+    opacity: .7;
+    bottom: 5vh;
+    left: 5vw;
+    cursor: pointer;
+    width: 48px;
+    transition: .3s ease;
+}
+.soundbutton.paused {
+    opacity: .3;
 }
