@@ -17,7 +17,7 @@ body {
     background-color: rgb(4, 8, 23);
     color: rgb(244, 248, 255);
     font-size: calc(var(--index) * .8);
-    font-family: 'Roboto Mono';
+    font-family: 'Patrick Hand';
     line-height: 1.75;
     height: var(--depth);
     font-weight: 300;
